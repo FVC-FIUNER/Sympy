@@ -1,0 +1,89 @@
+Traceback (most recent call last):
+  File "C:\Users\Emiliano\AppData\Local\Programs\Python\Python312\Lib\site-packages\jupyter_cache\executors\utils.py", line 58, in single_nb_execution
+    executenb(
+  File "C:\Users\Emiliano\AppData\Local\Programs\Python\Python312\Lib\site-packages\nbclient\client.py", line 1314, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Emiliano\AppData\Local\Programs\Python\Python312\Lib\site-packages\jupyter_core\utils\__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Emiliano\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\Emiliano\AppData\Local\Programs\Python\Python312\Lib\site-packages\nbclient\client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "C:\Users\Emiliano\AppData\Local\Programs\Python\Python312\Lib\site-packages\nbclient\client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "C:\Users\Emiliano\AppData\Local\Programs\Python\Python312\Lib\site-packages\nbclient\client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+F_s3.apart(s)
+------------------
+
+
+[1;31m---------------------------------------------------------------------------[0m
+[1;31mKeyError[0m                                  Traceback (most recent call last)
+File [1;32m~\AppData\Local\Programs\Python\Python312\Lib\site-packages\sympy\polys\polyutils.py:229[0m, in [0;36m_parallel_dict_from_expr_if_gens[1;34m(exprs, opt)[0m
+[0;32m    227[0m         base, exp [38;5;241m=[39m decompose_power_rat(factor)
+[1;32m--> 229[0m     monom[[43mindices[49m[43m[[49m[43mbase[49m[43m][49m] [38;5;241m=[39m exp
+[0;32m    230[0m [38;5;28;01mexcept[39;00m [38;5;167;01mKeyError[39;00m:
+
+[1;31mKeyError[0m: exp(s)
+
+During handling of the above exception, another exception occurred:
+
+[1;31mPolynomialError[0m                           Traceback (most recent call last)
+File [1;32m~\AppData\Local\Programs\Python\Python312\Lib\site-packages\sympy\polys\partfrac.py:81[0m, in [0;36mapart[1;34m(f, x, full, **options)[0m
+[0;32m     80[0m [38;5;28;01mtry[39;00m:
+[1;32m---> 81[0m     (P, Q), opt [38;5;241m=[39m [43mparallel_poly_from_expr[49m[43m([49m[43m([49m[43mP[49m[43m,[49m[43m [49m[43mQ[49m[43m)[49m[43m,[49m[43m [49m[43mx[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43moptions[49m[43m)[49m
+[0;32m     82[0m [38;5;28;01mexcept[39;00m PolynomialError [38;5;28;01mas[39;00m msg:
+
+File [1;32m~\AppData\Local\Programs\Python\Python312\Lib\site-packages\sympy\polys\polytools.py:4538[0m, in [0;36mparallel_poly_from_expr[1;34m(exprs, *gens, **args)[0m
+[0;32m   4537[0m opt [38;5;241m=[39m options[38;5;241m.[39mbuild_options(gens, args)
+[1;32m-> 4538[0m [38;5;28;01mreturn[39;00m [43m_parallel_poly_from_expr[49m[43m([49m[43mexprs[49m[43m,[49m[43m [49m[43mopt[49m[43m)[49m
+
+File [1;32m~\AppData\Local\Programs\Python\Python312\Lib\site-packages\sympy\polys\polytools.py:4589[0m, in [0;36m_parallel_poly_from_expr[1;34m(exprs, opt)[0m
+[0;32m   4587[0m         exprs[i] [38;5;241m=[39m exprs[i][38;5;241m.[39mas_expr()
+[1;32m-> 4589[0m reps, opt [38;5;241m=[39m [43m_parallel_dict_from_expr[49m[43m([49m[43mexprs[49m[43m,[49m[43m [49m[43mopt[49m[43m)[49m
+[0;32m   4590[0m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m opt[38;5;241m.[39mgens:
+
+File [1;32m~\AppData\Local\Programs\Python\Python312\Lib\site-packages\sympy\polys\polyutils.py:350[0m, in [0;36m_parallel_dict_from_expr[1;34m(exprs, opt)[0m
+[0;32m    349[0m [38;5;28;01mif[39;00m opt[38;5;241m.[39mgens:
+[1;32m--> 350[0m     reps, gens [38;5;241m=[39m [43m_parallel_dict_from_expr_if_gens[49m[43m([49m[43mexprs[49m[43m,[49m[43m [49m[43mopt[49m[43m)[49m
+[0;32m    351[0m [38;5;28;01melse[39;00m:
+
+File [1;32m~\AppData\Local\Programs\Python\Python312\Lib\site-packages\sympy\polys\polyutils.py:234[0m, in [0;36m_parallel_dict_from_expr_if_gens[1;34m(exprs, opt)[0m
+[0;32m    233[0m             [38;5;28;01melse[39;00m:
+[1;32m--> 234[0m                 [38;5;28;01mraise[39;00m PolynomialError([38;5;124m"[39m[38;5;132;01m%s[39;00m[38;5;124m contains an element of [39m[38;5;124m"[39m
+[0;32m    235[0m                                       [38;5;124m"[39m[38;5;124mthe set of generators.[39m[38;5;124m"[39m [38;5;241m%[39m factor)
+[0;32m    237[0m monom [38;5;241m=[39m [38;5;28mtuple[39m(monom)
+
+[1;31mPolynomialError[0m: exp(s) contains an element of the set of generators.
+
+During handling of the above exception, another exception occurred:
+
+[1;31mPolynomialError[0m                           Traceback (most recent call last)
+Cell [1;32mIn[14], line 1[0m
+[1;32m----> 1[0m [43mF_s3[49m[38;5;241;43m.[39;49m[43mapart[49m[43m([49m[43ms[49m[43m)[49m
+
+File [1;32m~\AppData\Local\Programs\Python\Python312\Lib\site-packages\sympy\core\expr.py:3742[0m, in [0;36mExpr.apart[1;34m(self, x, **args)[0m
+[0;32m   3740[0m [38;5;250m[39m[38;5;124;03m"""See the apart function in sympy.polys"""[39;00m
+[0;32m   3741[0m [38;5;28;01mfrom[39;00m [38;5;21;01msympy[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpolys[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpartfrac[39;00m [38;5;28;01mimport[39;00m apart
+[1;32m-> 3742[0m [38;5;28;01mreturn[39;00m [43mapart[49m[43m([49m[38;5;28;43mself[39;49m[43m,[49m[43m [49m[43mx[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43margs[49m[43m)[49m
+
+File [1;32m~\AppData\Local\Programs\Python\Python312\Lib\site-packages\sympy\utilities\decorator.py:34[0m, in [0;36mthreaded_factory.<locals>.threaded_func[1;34m(expr, *args, **kwargs)[0m
+[0;32m     31[0m     [38;5;28;01mreturn[39;00m expr[38;5;241m.[39m[38;5;18m__class__[39m(func(expr[38;5;241m.[39mlhs, [38;5;241m*[39margs, [38;5;241m*[39m[38;5;241m*[39mkwargs),
+[0;32m     32[0m                           func(expr[38;5;241m.[39mrhs, [38;5;241m*[39margs, [38;5;241m*[39m[38;5;241m*[39mkwargs))
+[0;32m     33[0m [38;5;28;01melse[39;00m:
+[1;32m---> 34[0m     [38;5;28;01mreturn[39;00m [43mfunc[49m[43m([49m[43mexpr[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[43margs[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
+
+File [1;32m~\AppData\Local\Programs\Python\Python312\Lib\site-packages\sympy\polys\partfrac.py:84[0m, in [0;36mapart[1;34m(f, x, full, **options)[0m
+[0;32m     82[0m [38;5;28;01mexcept[39;00m PolynomialError [38;5;28;01mas[39;00m msg:
+[0;32m     83[0m     [38;5;28;01mif[39;00m f[38;5;241m.[39mis_commutative:
+[1;32m---> 84[0m         [38;5;28;01mraise[39;00m PolynomialError(msg)
+[0;32m     85[0m     [38;5;66;03m# non-commutative[39;00m
+[0;32m     86[0m     [38;5;28;01mif[39;00m f[38;5;241m.[39mis_Mul:
+
+[1;31mPolynomialError[0m: exp(s) contains an element of the set of generators.
+
