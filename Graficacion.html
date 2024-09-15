@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -351,7 +351,7 @@ document.write(`
 <h1>Graficación con Matplotlib<a class="headerlink" href="#graficacion-con-matplotlib" title="Link to this heading">#</a></h1>
 <section id="introduccion">
 <h2>Introducción<a class="headerlink" href="#introduccion" title="Link to this heading">#</a></h2>
-<p>Como se presentó anteriormente Sympy permite graficar funciones simbólicas mediante la función <strong>plot()</strong>. Sin embargo, debido a limitaciones en cuanto a customización de las gráficas y manipulación de los datos es recomendable realizar las gráficas de las funciones utilizando la librería Matplotlib.</p>
+<p>Como se presentó anteriormente, Sympy permite graficar funciones simbólicas mediante la función <strong>plot()</strong>. Sin embargo, debido a limitaciones en cuanto a customización de las gráficas y manipulación de los datos es recomendable realizar las gráficas de las funciones utilizando la librería Matplotlib.</p>
 <p>Para poder representar nuestra función simbólica en una figura de Matplotlib debemos generar una lista con los valores de nuestra función en un determinado rango de interés. Veamos el siguiente ejemplo</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -460,7 +460,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/3084915daa62f5a07b1d5a4d715c71e31c4fc3367bf6a8dbcbdb663958152262.svg" src="_images/3084915daa62f5a07b1d5a4d715c71e31c4fc3367bf6a8dbcbdb663958152262.svg" />
+<img alt="_images/7f674f26b5dc36b6132883177a326717358844705b4b0f6a45bf90a46c481ff6.svg" src="_images/7f674f26b5dc36b6132883177a326717358844705b4b0f6a45bf90a46c481ff6.svg" />
 </div>
 </div>
 </section>
@@ -507,7 +507,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/c6241d836e631f422fb16df877233a8dd4bfa758048043db12a3ef1658970fc4.svg" src="_images/c6241d836e631f422fb16df877233a8dd4bfa758048043db12a3ef1658970fc4.svg" />
+<img alt="_images/0a1c1c589a23498ac718141935a91b63f16a386cfc524de69c6260375f72833f.svg" src="_images/0a1c1c589a23498ac718141935a91b63f16a386cfc524de69c6260375f72833f.svg" />
 </div>
 </div>
 <p>La gran ventaja de <strong>lambdify()</strong> sobre la combinación de métodos <strong>subs()</strong> y <strong>evalf()</strong> es que es un algoritmo aproximadamente 50 veces más rápido que los demás, y esta diferencia en la velocidad de cómputo se hace notoria cuando las funciones simbólicas involucran expresiones complicadas y/o cuando la cantidad de elementos en nuestra lista de tiempos es elevada.</p>

@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -351,7 +351,7 @@ document.write(`
 <h1>La Transformada de Laplace<a class="headerlink" href="#la-transformada-de-laplace" title="Link to this heading">#</a></h1>
 <section id="introduccion">
 <h2>Introducción<a class="headerlink" href="#introduccion" title="Link to this heading">#</a></h2>
-<p>Sympy permite calcular transformadas de Laplace mediante la función <strong>laplace_transform()</strong>, y la correspondiente transformada inversa mediante la función <strong>inverse_laplace_transform</strong>. En el caso de la transformada directa de manera predeterminada <strong>laplace_transform()</strong> realiza el cálculo de la transformada y nos devuelve la función, la abscisa de convergencia y condiciones de convergencia auxiliares. En la mayoría de las situaciones prácticas nos interesa únicamente obtener el cálculo de la transformada de la función, por lo que vamos a definir nuestras propias funciones para el cálculo de la transformada directa y la transformada inversa</p>
+<p>SymPy permite calcular las transformadas de Laplace mediante la función <strong>laplace_transform()</strong>, y la transformada inversa a través de la función <strong>inverse_laplace_transform()</strong>. En el caso de la transformada directa, por defecto, laplace_transform() devuelve la transformada de la función, la abscisa de convergencia y las condiciones de convergencia adicionales. Sin embargo, en la mayoría de los casos prácticos, el interés principal radica únicamente en el cálculo de la transformada de la función. Por esta razón, se definirán funciones propias tanto para el cálculo de la transformada directa como para la transformada inversa.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sp</span>
