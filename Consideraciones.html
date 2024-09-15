@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Consideraciones a tener en cuenta &#8212; Funciones de Variable Compleja</title>
+    <title>Consideraciones &#8212; Funciones de Variable Compleja</title>
   
   
   
@@ -183,7 +183,7 @@
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Laplace.html">La Transformada de Laplace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Graficacion.html">Graficación con Matplotlib</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Consideraciones a tener en cuenta</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Consideraciones</a></li>
 </ul>
 
     </div>
@@ -367,7 +367,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Consideraciones a tener en cuenta</h1>
+    <h1>Consideraciones</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -381,9 +381,9 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="consideraciones-a-tener-en-cuenta">
-<h1>Consideraciones a tener en cuenta<a class="headerlink" href="#consideraciones-a-tener-en-cuenta" title="Link to this heading">#</a></h1>
-<p>A pesar de todas sus funcionalidades, Sympy aún no es una librería robusta en el cálculo de transformadas de Laplace, especialmente en el cálculo de transformadas inversas. La capacidad de cálculo de la antitransformada generalmente depende en gran medida de <strong>cómo</strong> expresamos nuestra función de interés sobre la cual queremos aplicar el operador. Algunas de las consideraciones al momento de utilizar la librería son:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="consideraciones">
+<h1>Consideraciones<a class="headerlink" href="#consideraciones" title="Link to this heading">#</a></h1>
+<p>A pesar de todas sus funcionalidades, Sympy aún no es una librería robusta en el cálculo de transformadas de Laplace, especialmente en el cálculo de transformadas inversas. La capacidad de cálculo de la antitransformada generalmente depende en gran medida de <strong>cómo</strong> expresamos nuestra función de interés sobre la cual queremos aplicar el operador. Algunas de las consideraciones a tener en cuenta al momento de utilizar la librería son:</p>
 <blockquote>
 <div><p>Uno de los motivos comunes por los que el software no es capaz de realizar el cálculo de una transformada inversa se debe a que las constantes numéricas involucradas están expresadas como valores flotantes y no como variables simbólicas. Por ejemplo, si una constante involucrada en el cálculo es <span class="math notranslate nohighlight">\(k = 0.5\)</span> y el software no es capaz de resolver la antitransformada, una posible solución al problema es expresar la misma como una variable simbólica mediante la función <strong>Rational()</strong></p>
 </div></blockquote>
