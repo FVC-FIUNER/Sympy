@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Introducción a Sympy &#8212; Funciones de Variable Compleja</title>
+    <title>Consideraciones a tener en cuenta &#8212; Funciones de Variable Compleja</title>
   
   
   
@@ -59,10 +59,10 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Introduccion';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Consideraciones';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="La Transformada de Laplace" href="Laplace.html" />
+    <link rel="prev" title="Graficación con Matplotlib" href="Graficacion.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -125,8 +125,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -145,7 +143,7 @@
     
   
 
-<a class="navbar-brand logo" href="#">
+<a class="navbar-brand logo" href="Introduccion.html">
   
   
   
@@ -176,16 +174,16 @@
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1 current active">
-                <a class="reference internal" href="#">
+            <li class="toctree-l1">
+                <a class="reference internal" href="Introduccion.html">
                     Introducción a Sympy
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Laplace.html">La Transformada de Laplace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Graficacion.html">Graficación con Matplotlib</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Consideraciones.html">Consideraciones a tener en cuenta</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Consideraciones a tener en cuenta</a></li>
 </ul>
 
     </div>
@@ -257,7 +255,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FIntroduccion.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FConsideraciones.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -287,7 +285,7 @@
       
       
       
-      <li><a href="_sources/Introduccion.ipynb" target="_blank"
+      <li><a href="_sources/Consideraciones.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -369,7 +367,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Introducción a Sympy</h1>
+    <h1>Consideraciones a tener en cuenta</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -383,130 +381,22 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="introduccion-a-sympy">
-<h1>Introducción a Sympy<a class="headerlink" href="#introduccion-a-sympy" title="Link to this heading">#</a></h1>
-<p>La idea de este documento es brindar al alumno una breve guía orientativa para la utilización de la librería Sympy como herramienta para la resolución del Trabajo de Laboratorio Computacional n° 2.</p>
-<p>El eje central de Sympy es el manejo de expresiones simbólicas. Para definir una expresión simbólica, primeramente debemos definir los <em>símbolos</em> que vamos a utilizar y que van a ser los elementos con los que podamos construir nuestras funciones. Comenzamos importando la librería</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sp</span>
+  <section class="tex2jax_ignore mathjax_ignore" id="consideraciones-a-tener-en-cuenta">
+<h1>Consideraciones a tener en cuenta<a class="headerlink" href="#consideraciones-a-tener-en-cuenta" title="Link to this heading">#</a></h1>
+<p>A pesar de todas sus funcionalidades, Sympy aún no es una librería robusta en el cálculo de transformadas de Laplace, especialmente en el cálculo de transformadas inversas. La capacidad de cálculo de la antitransformada generalmente depende en gran medida de <strong>cómo</strong> expresamos nuestra función de interés sobre la cual queremos aplicar el operador. Algunas de las consideraciones al momento de utilizar la librería son:</p>
+<blockquote>
+<div><p>Uno de los motivos comunes por los que el software no es capaz de realizar el cálculo de una transformada inversa se debe a que las constantes numéricas involucradas están expresadas como valores flotantes y no como variables simbólicas. Por ejemplo, si una constante involucrada en el cálculo es <span class="math notranslate nohighlight">\(k = 0.5\)</span> y el software no es capaz de resolver la antitransformada, una posible solución al problema es expresar la misma como una variable simbólica mediante la función <strong>Rational()</strong></p>
+</div></blockquote>
+<center>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Rational</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-</div>
-<p>Ahora definimos nuestra variable simbólica <span class="math notranslate nohighlight">\(t\)</span>. Por defecto, las variables simbólicas son complejas. Por tanto si deseamos definir una variable real, debemos aclararlo</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">,</span><span class="n">real</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Hecho esto, estamos en condiciones de definir funciones simbólicas. Por ejemplo <span class="math notranslate nohighlight">\(\displaystyle f(t) =\frac{8(1+t/2)}{(4-4t)(2+t)}\)</span></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f_t</span> <span class="o">=</span> <span class="mi">8</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">t</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">((</span><span class="mi">4</span><span class="o">-</span><span class="mi">4</span><span class="o">*</span><span class="n">t</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">+</span><span class="n">t</span><span class="p">))</span>
-<span class="n">f_t</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_latex math notranslate nohighlight">
-\[\displaystyle \frac{4 t + 8}{\left(4 - 4 t\right) \left(t + 2\right)}\]</div>
-</div>
-</div>
-<p>Ahora podemos operar y manipular nuestra función <span class="math notranslate nohighlight">\(f(t)\)</span> como deseemos. Por ejemplo, pidiéndole a Sympy que la simplifique</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f_t</span> <span class="o">=</span> <span class="n">f_t</span><span class="o">.</span><span class="n">simplify</span><span class="p">()</span>
-<span class="n">f_t</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_latex math notranslate nohighlight">
-\[\displaystyle - \frac{1}{t - 1}\]</div>
-</div>
-</div>
-<p>De manera similar podemos pedirle a Sympy que integre nuestra función, que encuentre su derivada, o que encuentre las raíces de su denominador, etc. Para el caso de querer obtener su derivada podemos hacerlo como</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f_t</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_latex math notranslate nohighlight">
-\[\displaystyle \frac{1}{\left(t - 1\right)^{2}}\]</div>
-</div>
-</div>
-<p>Una función importante dentro de la librería es la función <strong>Sum()</strong> la cual nos permite definir una sumatoria. Esto podemos hacerlo de la siguiente manera</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definimos el índice de la sumatoria como variable simbólica</span>
-<span class="n">n</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="n">real</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definimos nuestra sumatoria simbólica mediante la función Sum()</span>
-<span class="n">Fn_t</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Sum</span><span class="p">(</span><span class="n">t</span><span class="o">**</span><span class="n">n</span><span class="o">/</span><span class="n">sp</span><span class="o">.</span><span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">),(</span><span class="n">n</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">sp</span><span class="o">.</span><span class="n">oo</span><span class="p">))</span>
-<span class="n">Fn_t</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_latex math notranslate nohighlight">
-\[\displaystyle \sum_{n=0}^{\infty} \frac{t^{n}}{n!}\]</div>
-</div>
-</div>
-<p>En situaciones donde no querramos definir una sumatoria infinita simplemente podemos cambiar el límite superior de la expresión. Por ejemplo si quisiéramos quedarnos con los primeros 4 términos de la sumatoria podemos hacerlo de la siguiente manera</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="n">Fn_t</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Sum</span><span class="p">(</span><span class="n">t</span><span class="o">**</span><span class="n">n</span><span class="o">/</span><span class="n">sp</span><span class="o">.</span><span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">),(</span><span class="n">n</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">N</span><span class="p">))</span>
-<span class="n">Fn_t</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_latex math notranslate nohighlight">
-\[\displaystyle \sum_{n=0}^{3} \frac{t^{n}}{n!}\]</div>
-</div>
-</div>
-<p>Por defecto simpy nos devuelve la sumatoria en su forma compacta y en general para realizar operaciones que involucren sumatorias es una buena práctica expresarla en su forma expandida. Esto podemos hacerlo mediante el método <strong>doit()</strong></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Fn_t</span> <span class="o">=</span> <span class="n">Fn_t</span><span class="o">.</span><span class="n">doit</span><span class="p">()</span>
-<span class="n">Fn_t</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_latex math notranslate nohighlight">
-\[\displaystyle \frac{t^{3}}{6} + \frac{t^{2}}{2} + t + 1\]</div>
-</div>
-</div>
-<p>Finalmente, utilizando la función <strong>plot()</strong> podemos representar nuestras expresiones simbólicas</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Antes de realizar el plot cambiamos el formato de la imagen de salida para obtener una imagen de alta calidad</span>
-<span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;svg&#39;
-
-<span class="n">plot</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">t</span><span class="p">),(</span><span class="n">t</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">xlabel</span> <span class="o">=</span> <span class="s1">&#39;t [s]&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Amplitud&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;f(t)=$e^t$&#39;</span><span class="p">,</span><span class="n">line_color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">);</span>
-<span class="n">plot</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Fn_t</span><span class="p">,(</span><span class="n">t</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">line_color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Aproximación con N=3&#39;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
-<span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/0f489bcd863e583bc8410172a5ef0488d76b52cc9757143ad468e89548168d7a.svg" src="_images/0f489bcd863e583bc8410172a5ef0488d76b52cc9757143ad468e89548168d7a.svg" />
-</div>
-</div>
-<div class="toctree-wrapper compound">
-</div>
+<blockquote>
+<div><p>Cuando el software no sea capaz de realizar el cálculo que le estamos solicitando es probable que debamos reexpresar nuestra función de manera factorizada o como una combinación lineal de expresiones más simples. Si quisiéramos expresar expresar nuestra función como fraciones simples podríamos hacerlo mediante el método <strong>apart()</strong>.</p>
+</div></blockquote>
+<blockquote>
+<div><p>Muchas veces los resultados devueltos están expresados en términos de constantes númericas que son prácticamente imposibles de interpretar y por lo tanto se vuelve difícil corroborar si el resultado devuelto por el software es correcto. Una forma de solucionar esto es forzar a que se evalúen las constantes numéricas y se expresen con una cantidad de digitos que nosotros deseemos. Esto podemos hacerlo mediante el método <strong>evalf()</strong>.</p>
+</div></blockquote>
 </section>
 
     <script type="text/x-thebe-config">
@@ -539,14 +429,14 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="right-next"
-       href="Laplace.html"
-       title="next page">
+    <a class="left-prev"
+       href="Graficacion.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">La Transformada de Laplace</p>
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Graficación con Matplotlib</p>
       </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
