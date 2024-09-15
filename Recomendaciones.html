@@ -6,8 +6,9 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Index &#8212; Funciones de Variable Compleja</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Limitaciones y recomendaciones &#8212; Funciones de Variable Compleja</title>
   
   
   
@@ -56,9 +57,10 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'genindex';</script>
-    <link rel="index" title="Index" href="#" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Recomendaciones';</script>
+    <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Graficación con Matplotlib" href="Graficacion.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -121,8 +123,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -178,10 +178,10 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Laplace.html">La Transformada de Laplace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Graficacion.html">Graficación con Matplotlib</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Recomendaciones.html">Limitaciones y recomendaciones</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Limitaciones y recomendaciones</a></li>
 </ul>
 
     </div>
@@ -223,6 +223,54 @@
         <div class="header-article-item">
 
 <div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Recomendaciones.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
 
 
 
@@ -270,7 +318,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1></h1>
+    <h1>Limitaciones y recomendaciones</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -284,13 +332,40 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
+  <section class="tex2jax_ignore mathjax_ignore" id="limitaciones-y-recomendaciones">
+<h1>Limitaciones y recomendaciones<a class="headerlink" href="#limitaciones-y-recomendaciones" title="Link to this heading">#</a></h1>
+<p>A pesar de las múltiples funcionalidades que ofrece SymPy, aún no constituye una herramienta completamente robusta para el cálculo de transformadas de Laplace, particularmente en lo que respecta al cálculo de transformadas inversas. La precisión en el cálculo de la antitransformada depende, en gran medida, de la manera en que se exprese la función de interés a la que se desea aplicar el operador. Por lo tanto, al emplear esta librería, es fundamental tener en cuenta ciertas consideraciones claves.</p>
+<blockquote>
+<div><p>Uno de los motivos más frecuentes por los cuales el software no es capaz de realizar el cálculo de una transformada inversa se debe a que las constantes numéricas involucradas están representadas como valores flotantes en lugar de variables simbólicas. Por ejemplo, si una constante presente en el cálculo se expresa como un número flotante y el software no puede resolver la antitransformada, una solución viable es reexpresar dicha constante como una variable simbólica utilizando la función <strong>Rational()</strong>.</p>
+</div></blockquote>
+<blockquote>
+<div><p>En los casos en que el software no logre efectuar el cálculo solicitado, es posible que sea necesario reestructurar la función, ya sea factorizándola o expresándola como una combinación lineal de términos más simples. Si deseamos descomponer nuestra función en fracciones simples, podemos emplear el método <strong>apart()</strong> para lograr dicha expresión.</p>
+</div></blockquote>
+<blockquote>
+<div><p>Con frecuencia, los resultados devueltos por el software están representados en términos de constantes numéricas que resultan prácticamente ininterpretables, lo que dificulta la validación de los mismos. Una solución a este inconveniente consiste en forzar la evaluación de dichas constantes, expresándolas con el número de dígitos significativos que se considere adecuado. Esto se puede lograr utilizando el método <strong>evalf()</strong>.</p>
+</div></blockquote>
+<p>Las recomendaciones presentadas son solo algunas sugerencias para abordar las limitaciones y particularidades del uso de SymPy en el cálculo de transformadas de Laplace. Se recomienda encarecidamente revisar la documentación oficial de SymPy disponible en su página web, ya que contiene información detallada y actualizada que puede ser de gran utilidad para optimizar su uso en distintas aplicaciones.</p>
+</section>
 
-<h1 id="index">Index</h1>
-
-<div class="genindex-jumpbox">
- 
-</div>
-
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
 
                 </article>
               
@@ -302,6 +377,15 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="Graficacion.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Graficación con Matplotlib</p>
+      </div>
+    </a>
 </div>
                 </footer>
               
