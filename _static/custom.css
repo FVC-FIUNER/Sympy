@@ -1,0 +1,4 @@
+/* Ocultar el botón de alternancia de tema claro/oscuro */
+div.theme-switcher {
+  display: none !important;
+}
